@@ -198,6 +198,110 @@ footer {
   font-size: 0.95rem;
 }
 
+/* ---------- Pencere (sipariş / stok bildirimi) ---------- */
+.pencere {
+  width: min(480px, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--cizgi);
+  background: var(--zemin);
+  color: var(--yazi);
+}
+
+.pencere::backdrop {
+  background: color-mix(in srgb, var(--yazi) 45%, transparent);
+}
+
+.pencere-ic {
+  position: relative;
+  padding: 2.5rem 2rem 2rem;
+}
+
+.pencere-kapat {
+  position: absolute;
+  top: 0.6rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--soluk);
+  cursor: pointer;
+}
+
+.pencere h3 {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.pencere-alt-baslik {
+  text-align: center;
+  color: var(--soluk);
+  margin-bottom: 1.8rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.alan {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.95rem;
+}
+
+.alan input,
+.alan select,
+.alan textarea {
+  font: inherit;
+  font-size: 1rem;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--cizgi);
+  background: var(--zemin);
+  color: var(--yazi);
+}
+
+.alan input:focus,
+.alan select:focus,
+.alan textarea:focus {
+  outline: none;
+  border-color: var(--nar);
+}
+
+.istege-bagli {
+  color: var(--soluk);
+}
+
+.hata {
+  color: var(--nar);
+  font-size: 0.95rem;
+}
+
+.form .buton {
+  margin-top: 0.5rem;
+}
+
+.buton:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.onay {
+  text-align: center;
+}
+
+.onay p {
+  margin-bottom: 1rem;
+}
+
+.onay .buton {
+  margin-top: 0.5rem;
+}
+
 /* ---------- Telefon ekranı ---------- */
 @media (max-width: 800px) {
   .ust { padding: 5rem 16px 4rem; }

@@ -67,8 +67,15 @@ Zengin, lüks tüketen, kaliteden anlayan ve özgün tasarım isteyen müşteril
   - `src/components/ProductCard.jsx` — tek ürün kartının kalıbı
   - `src/components/ProductImage.jsx` — kartın görsel alanı (fotoğraf yoksa boş gri alan)
   - `src/components/ProductList.jsx` — koleksiyon; listeyi kartlara döker
+  - `src/components/Modal.jsx` — pencerelerin ortak çerçevesi (× / Esc / dışarı tıklama kapatır)
+  - `src/components/OrderForm.jsx` — sipariş penceresi
+  - `src/components/StockNotifyForm.jsx` — stok bildirimi penceresi
+  - `src/webhook.js` — bütün webhook gönderimleri (sipariş, stok bildirimi, vazgeçme)
+  - `.env.local` — webhook adresi (`VITE_WEBHOOK_URL`). GitHub'a yüklenmez.
   - `src/App.jsx` — ana sayfa, parçaları birleştirir
   - `src/index.css` — bütün stiller
+- `taslak-metinler.md` — sub-agent'ın yazdığı ürün açıklaması ve "Hakkımızda" taslakları. Ecem seçecek; henüz `products.js`e eklenmedi.
+- Kişisel bilgi (telefon, e-posta, IP) içeren ekran görüntüleri bu klasöre konmaz; repo herkese açık. Teslim görüntüleri bir üst klasörde.
 
 ## Çalıştırma
 
@@ -82,8 +89,8 @@ Zengin, lüks tüketen, kaliteden anlayan ve özgün tasarım isteyen müşteril
 - [x] 1.2 React'e geçiş (ProductCard, ProductList, ProductImage) + revizyon döngüsü
 - [x] 1.3 /plan ile veri modeli planlama: stok adedi + renkler eklendi, rezerv/ödeme modeli 2. haftaya planlandı. Etkilenen dosyalar: products.js, ProductCard.jsx, index.css, CLAUDE.md.
 - [x] 1.4 Hata turu: bilerek yanlış prop adı → terminal çıktısıyla düzelt; bozuk CSS → ekran görüntüsüyle düzelt
-- [ ] 1.5 AtölyeKart skill'i (bileşen standartları + webhook formatı), GitHub'da repo + ilk commit, katalogda QR kod (opsiyonel), sub-agent (opsiyonel)
-- [ ] 1.6 Sipariş ve stok bildirimi pencereleri + webhook (webhook.site ile test), vazgeçme kayıtları
+- [x] 1.5 AtölyeKart skill'i (bileşen standartları + webhook formatı), GitHub'da repo + ilk commit, katalogda QR kod (opsiyonel, yapılmadı), sub-agent (opsiyonel)
+- [x] 1.6 Sipariş ve stok bildirimi pencereleri + webhook (webhook.site ile test), vazgeçme kayıtları
 - [ ] Teslim: proje klasörü ya da GitHub linki ekran görüntüsü, çalışan React sayfası ekran görüntüsü (en sonda), webhook.site'ta iki ayrı kayıt, "Kısa düşünce" cevapları (Ecem kendi cümleleriyle)
 
 ## Durum
@@ -94,4 +101,6 @@ Zengin, lüks tüketen, kaliteden anlayan ve özgün tasarım isteyen müşteril
 - 1.3: `inStock` yerine `stock` (sayı) ve `colors` eklendi; kartta renk seçimi (React state ile).
 - 1.4: Hata turu yapıldı (yanlış prop adı terminalle, bozuk CSS ekran görüntüsüyle düzeltildi). Sonrasında `npm run build` hatasız.
 - 1.5: GitHub repo açıldı ve ilk commit yüklendi: https://github.com/ecemtg/AtolyeKart (public, dal: `main`).
-- Sıradaki: 1.5'in kalanı (skill'leri kontrol et; QR kod ve sub-agent opsiyonel).
+- 1.5: Skill'ler kontrol edildi (`.claude/skills/`), ödevle uyumlu. Sub-agent 1.6 sırasında arka planda `taslak-metinler.md`yi yazdı. QR kod yapılmadı.
+- 1.6: Sipariş ve stok bildirimi pencereleri + vazgeçme kaydı çalışıyor. webhook.site'ta `order`, `stock_notify`, `abandoned` kayıtları geldi (5 Ekim 2026). Gönderim `no-cors` ile; cevap okunamıyor, 2. haftada backend ile düzelecek.
+- Sıradaki: Teslim (React sayfası ekran görüntüsü, "Kısa düşünce" cevapları). İsteğe bağlı: skill'lere renk yuvarlağı istisnası ve webhook örnekleri, QR kod.

@@ -3,6 +3,8 @@
 
 import { useState } from 'react'
 import ProductImage from './ProductImage.jsx'
+import OrderForm from './OrderForm.jsx'
+import StockNotifyForm from './StockNotifyForm.jsx'
 
 function formatPrice(price) {
   return price.toLocaleString('tr-TR') + ' TL'
@@ -11,6 +13,8 @@ function formatPrice(price) {
 function ProductCard({ product }) {
   // Kartın hafızası: hangi renk seçili? İlk açılışta listedeki ilk renk.
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
+  // Hangi pencere açık? null (hiçbiri), 'order' ya da 'stock_notify'
+  const [openForm, setOpenForm] = useState(null)
 
   return (
     <article className="urun">
@@ -36,12 +40,23 @@ function ProductCard({ product }) {
       <p className="aciklama">{product.description}</p>
 
       {product.stock > 0 ? (
-        <button className="buton" type="button">Sipariş ver</button>
+        <button className="buton" type="button" onClick={() => setOpenForm('order')}>
+          Sipariş ver
+        </button>
       ) : (
         <>
           <p className="tukendi">Tükendi</p>
-          <button className="buton ikincil" type="button">Stoğa girince haber ver</button>
+          <button className="buton ikincil" type="button" onClick={() => setOpenForm('stock_notify')}>
+            Stoğa girince haber ver
+          </button>
         </>
+      )}
+
+      {openForm === 'order' && (
+        <OrderForm product={product} color={selectedColor} onClose={() => setOpenForm(null)} />
+      )}
+      {openForm === 'stock_notify' && (
+        <StockNotifyForm product={product} onClose={() => setOpenForm(null)} />
       )}
     </article>
   )
