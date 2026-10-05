@@ -1,0 +1,206 @@
+/* Sayfanın bütün stilleri — HTML sürümündeki <style> bölümünden taşındı. */
+
+:root {
+  --zemin: #FFFFFF;        /* beyaz zemin */
+  --yazi: #1C1C1C;         /* ana yazı rengi */
+  --soluk: #7A7A7A;        /* ikincil yazılar */
+  --cizgi: #E4E4E4;        /* ince ayırıcı çizgiler */
+  --gorsel: #F3F3F3;       /* boş görsel alanı */
+  --nar: #C8102E;          /* imza rengi: koyu nar çiçeği */
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--zemin);
+  color: var(--yazi);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'Bodoni Moda', serif;
+  font-weight: 400;
+}
+
+/* ---------- Üst kısım ---------- */
+.ust {
+  text-align: center;
+  padding: 9rem 16px 7rem;
+}
+
+.ust h1 {
+  font-size: clamp(3.2rem, 10vw, 8rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.ust .nar-cizgi {
+  width: 56px;
+  height: 3px;
+  background: var(--nar);
+  margin: 2.5rem auto 1.5rem;
+}
+
+.ust p {
+  font-size: 1.2rem;
+  color: var(--soluk);
+}
+
+/* ---------- Bölümlerin ortak düzeni ---------- */
+section {
+  padding: 6rem 8vw;
+  border-top: 1px solid var(--cizgi);
+}
+
+section h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+/* ---------- Koleksiyon ---------- */
+.vitrin {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.urun {
+  text-align: center;
+  border: 1px solid var(--cizgi);
+  padding: 1.5rem 1.5rem 2rem;
+}
+
+/* Görsel sonra eklenecek, şimdilik boş alan */
+.urun-gorsel {
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  display: block;
+  object-fit: contain;
+  background: var(--gorsel);
+  margin-bottom: 1.8rem;
+}
+
+.urun h3 {
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+.fiyat {
+  color: var(--yazi);
+  font-weight: 500;
+  margin: 0.4rem 0 0.8rem;
+}
+
+/* Renk yuvarlakları: seçili olanın etrafında ince nar halka */
+.renkler {
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.renk {
+  width: 1.4rem;
+  height: 1.4rem;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--cizgi);
+  cursor: pointer;
+}
+
+.renk[data-renk="Altın"]       { background: #D4AF37; }
+.renk[data-renk="Beyaz Altın"] { background: #E8E8E3; }
+.renk[data-renk="Rose"]        { background: #E0A899; }
+
+.renk.secili {
+  outline: 1px solid var(--nar);
+  outline-offset: 3px;
+}
+
+.renk:focus-visible {
+  outline: 2px solid var(--yazi);
+  outline-offset: 3px;
+}
+
+.renk-adi {
+  color: var(--soluk);
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0.8rem;
+}
+
+.aciklama {
+  min-height: 1.6em;
+  max-width: 34ch;
+  margin: 0 auto 1.2rem;
+}
+
+.tukendi {
+  color: var(--nar);
+  font-weight: 400;
+  margin-bottom: 0.8rem;
+}
+
+.buton {
+  font-family: 'Jost', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.85rem 2rem;
+  background: var(--nar);
+  color: #FFFFFF;
+  border: 1px solid var(--nar);
+  cursor: pointer;
+}
+
+.buton.ikincil {
+  background: transparent;
+  color: var(--nar);
+}
+
+.buton:focus-visible {
+  outline: 2px solid var(--yazi);
+  outline-offset: 3px;
+}
+
+/* ---------- Hakkımızda ---------- */
+.hakkimizda p {
+  max-width: 60ch;
+  min-height: 1.6em;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ---------- Randevu / İletişim ---------- */
+.iletisim {
+  text-align: center;
+}
+
+.iletisim p {
+  margin-bottom: 0.4rem;
+}
+
+.iletisim a {
+  color: var(--nar);
+  text-decoration: none;
+  border-bottom: 1px solid var(--nar);
+}
+
+/* ---------- Alt kısım ---------- */
+footer {
+  text-align: center;
+  padding: 3rem 16px;
+  border-top: 1px solid var(--cizgi);
+  color: var(--soluk);
+  font-size: 0.95rem;
+}
+
+/* ---------- Telefon ekranı ---------- */
+@media (max-width: 800px) {
+  .ust { padding: 5rem 16px 4rem; }
+  section { padding: 4rem 16px; }
+  .vitrin { grid-template-columns: 1fr; gap: 4rem; }
+}

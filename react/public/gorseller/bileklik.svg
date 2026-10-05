@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 250">
+  <g fill="none" stroke="#1C1C1C" stroke-width="1.2" stroke-linejoin="round">
+    <ellipse cx="100" cy="125" rx="80" ry="34" />
+    <g fill="#FFFFFF">
+      <polygon points="19,137 25,131 31,137 25,145" />
+      <polygon points="37,149 43,143 49,149 43,157" />
+      <polygon points="67,157 73,151 79,157 73,165" />
+      <polygon points="94,159 100,153 106,159 100,167" />
+      <polygon points="121,157 127,151 133,157 127,165" />
+      <polygon points="151,149 157,143 163,149 157,157" />
+      <polygon points="169,137 175,131 181,137 175,145" />
+    </g>
+  </g>
+</svg>

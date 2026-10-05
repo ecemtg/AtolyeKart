@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atelier Ecem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --zemin: #FFFFFF;        /* beyaz zemin */
+      --yazi: #1C1C1C;         /* ana yazı rengi */
+      --soluk: #7A7A7A;        /* ikincil yazılar */
+      --cizgi: #E4E4E4;        /* ince ayırıcı çizgiler */
+      --gorsel: #F3F3F3;       /* boş görsel alanı */
+      --nar: #C8102E;          /* imza rengi: koyu nar çiçeği */
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--zemin);
+      color: var(--yazi);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Bodoni Moda', serif;
+      font-weight: 400;
+    }
+
+    /* ---------- Üst kısım ---------- */
+    .ust {
+      text-align: center;
+      padding: 9rem 16px 7rem;
+    }
+
+    .ust h1 {
+      font-size: clamp(3.2rem, 10vw, 8rem);
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+
+    .ust .nar-cizgi {
+      width: 56px;
+      height: 3px;
+      background: var(--nar);
+      margin: 2.5rem auto 1.5rem;
+    }
+
+    .ust p {
+      font-size: 1.2rem;
+      color: var(--soluk);
+    }
+
+    /* ---------- Bölümlerin ortak düzeni ---------- */
+    section {
+      padding: 6rem 8vw;
+      border-top: 1px solid var(--cizgi);
+    }
+
+    section h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    /* ---------- Koleksiyon ---------- */
+    .vitrin {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .urun {
+      text-align: center;
+    }
+
+    /* Görsel sonra eklenecek, şimdilik boş alan */
+    .urun-gorsel {
+      aspect-ratio: 4 / 5;
+      background: var(--gorsel);
+      margin-bottom: 1.8rem;
+    }
+
+    .urun h3 {
+      font-size: 1.6rem;
+      line-height: 1.2;
+    }
+
+    .fiyat {
+      color: var(--soluk);
+      margin: 0.4rem 0 0.8rem;
+    }
+
+    .aciklama {
+      min-height: 1.6em;
+      max-width: 34ch;
+      margin: 0 auto 1.2rem;
+    }
+
+    .tukendi {
+      color: var(--nar);
+      font-weight: 400;
+      margin-bottom: 0.8rem;
+    }
+
+    .buton {
+      font-family: 'Jost', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      padding: 0.85rem 2rem;
+      background: var(--nar);
+      color: #FFFFFF;
+      border: 1px solid var(--nar);
+      cursor: pointer;
+    }
+
+    .buton.ikincil {
+      background: transparent;
+      color: var(--nar);
+    }
+
+    .buton:focus-visible {
+      outline: 2px solid var(--yazi);
+      outline-offset: 3px;
+    }
+
+    /* ---------- Hakkımızda ---------- */
+    .hakkimizda p {
+      max-width: 60ch;
+      min-height: 1.6em;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* ---------- Randevu / İletişim ---------- */
+    .iletisim {
+      text-align: center;
+    }
+
+    .iletisim p {
+      margin-bottom: 0.4rem;
+    }
+
+    .iletisim a {
+      color: var(--nar);
+      text-decoration: none;
+      border-bottom: 1px solid var(--nar);
+    }
+
+    /* ---------- Alt kısım ---------- */
+    footer {
+      text-align: center;
+      padding: 3rem 16px;
+      border-top: 1px solid var(--cizgi);
+      color: var(--soluk);
+      font-size: 0.95rem;
+    }
+
+    /* ---------- Telefon ekranı ---------- */
+    @media (max-width: 800px) {
+      .ust { padding: 5rem 16px 4rem; }
+      section { padding: 4rem 16px; }
+      .vitrin { grid-template-columns: 1fr; gap: 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ÜST KISIM -->
+  <header class="ust">
+    <h1>Atelier Ecem</h1>
+    <div class="nar-cizgi"></div>
+    <p>Elde işlenen pırlanta takılar.</p>
+  </header>
+
+  <main>
+
+    <!-- KOLEKSİYON -->
+    <section class="koleksiyon">
+      <h2>Koleksiyon</h2>
+
+      <div class="vitrin">
+
+        <!-- Ürün 1 -->
+        <article class="urun">
+          <div class="urun-gorsel"></div>
+          <h3>Pırlanta Kolye</h3>
+          <p class="fiyat">20.000.000 TL</p>
+          <p class="aciklama"><!-- açıklama sonra eklenecek --></p>
+          <button class="buton" type="button">Sipariş ver</button>
+        </article>
+
+        <!-- Ürün 2 -->
+        <article class="urun">
+          <div class="urun-gorsel"></div>
+          <h3>Pırlanta Yüzük</h3>
+          <p class="fiyat">5.000.000 TL</p>
+          <p class="aciklama"><!-- açıklama sonra eklenecek --></p>
+          <button class="buton" type="button">Sipariş ver</button>
+        </article>
+
+        <!-- Ürün 3 (tükendi) -->
+        <article class="urun">
+          <div class="urun-gorsel"></div>
+          <h3>Pırlanta Bileklik</h3>
+          <p class="fiyat">13.000.000 TL</p>
+          <p class="aciklama"><!-- açıklama sonra eklenecek --></p>
+          <p class="tukendi">Tükendi</p>
+          <button class="buton ikincil" type="button">Stoğa girince haber ver</button>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- HAKKIMIZDA -->
+    <section class="hakkimizda">
+      <h2>Hakkımızda</h2>
+      <p><!-- metin sonra eklenecek --></p>
+    </section>
+
+    <!-- RANDEVU / İLETİŞİM -->
+    <section class="iletisim">
+      <h2>Randevu / İletişim</h2>
+      <p>İstanbul</p>
+      <p>Randevu ile</p>
+      <p><a href="mailto:info@atelierecem.com">info@atelierecem.com</a></p>
+    </section>
+
+  </main>
+
+  <!-- ALT KISIM -->
+  <footer>Atelier Ecem</footer>
+
+</body>
+</html>
